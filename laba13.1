@@ -1,0 +1,36 @@
+
+//13.1
+clc
+x=[-2:0.3:6]
+y= x + cos(x-2)
+z=[x;y]
+plot (x,y, 'r+'); xgrid;
+xi=-3:0.3:7
+
+disp('________полином_1_степени________')
+sleep(1000)
+function zr=p(c,z)
+    zr=z(2)-c(1)-c(2)*z(1);
+endfunction
+
+c=[0;0];
+[a,S]=datafit(p,z,c)
+disp(S,'S=')
+disp(a,'a=')
+disp('Ответ: 1.018х-0.550')
+
+xi=[-2:0.3:6]
+pxi=a(1)+a(2)*xi
+plot(xi, pxi, 'y'); xgrid;
+
+
+disp('________полином_2_степени________')
+sleep(1000)
+function zr=p(c,z)
+    zr=z(2)-c(1)-c(2)*z(1)-c(3)*z(1).^2;
+endfunction
+
+
+c=[0;0;0];
+[a,S]=datafit(p,z,c)
+
